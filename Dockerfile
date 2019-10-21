@@ -9,6 +9,7 @@ FROM node
 
 # RUN node node_modules/webpack/bin/webpack.js --mode development
 
+
 ##############################
 FROM elixir:1.9
 
@@ -35,9 +36,9 @@ COPY mix* ./
 # without a shell prompt
 RUN mix local.hex --force \
     && mix local.rebar --force \
-    && mix archive.install hex phx_new 1.4.9 --force \
-    && mix deps.get \
-    && mix deps.compile
+    && mix archive.install hex phx_new 1.4.10 --force \
+    && mix deps.get
+    # && mix deps.compile
 
 COPY . .
 
